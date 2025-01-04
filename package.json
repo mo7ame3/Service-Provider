@@ -1,20 +1,35 @@
 {
   "name": "service-provider",
   "version": "1.0.0",
-  "description": "The Service Providers Application is a user-friendly and efficient platform that bridges the gap between clients and skilled professionals in various service industries. Designed to streamline the process of finding reliable and qualified service providers, the application aims to cater to the diverse needs of clients seeking assistance in areas.",
-  "main": "index.js",
+  "description": "Servies-Providers-API",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mo7ame3/Service-Provider.git"
   },
   "author": "Magdy",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mo7ame3/Service-Provider/issues"
+  },
+  "homepage": "https://github.com/mo7ame3/Service-Provider#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
-    "express": "^5.0.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.3",
-    "multer": "^2.0.0-rc.4",
-    "nodemon": "^3.1.9"
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

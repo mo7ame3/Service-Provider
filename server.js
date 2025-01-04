@@ -1,28 +1,25 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const app = require('./index.js');
 dotenv.config({ path: './config.env' });
-const port = process.env.PORT || 3000;
 
 const DB = process.env.DATABASE.replace(
-  '<PASWWORD>',
+  '<PASSWORD>',
   process.env.DATABASE_PASSWORD
 ).replace('<USERNAME>', process.env.DATABASE_USERNAME);
 
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(DB)
   .then(() => {
     console.log('DB connection successful!');
   })
   .catch((err) => {
-    console.log('Database connection error:  ' + err);
+    console.log(`Database connection error: ${err}`);
   });
 
-const server = app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+const app = require('./app');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
 process.on('unhandledRejection', (err) => {
