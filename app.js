@@ -1,5 +1,7 @@
 const userRouter = require('./routes/userRoutes');
 const orderRouter = require('./routes/orderRoutes');
+const craftRouter = require('./routes/craftRoutes');
+
 const globalErrorHandler = require('./controllers/errorController');
 const appError = require('./utils/appError');
 
@@ -19,6 +21,7 @@ app.use((req, res, next) => {
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/orders', orderRouter);
+app.use('/api/v1/crafts', craftRouter);
 
 app.all('*', (req, res, next) => {
   next(new appError(`Can't find ${req.originalUrl} on this server!`, 404));
