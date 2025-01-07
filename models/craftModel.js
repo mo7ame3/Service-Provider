@@ -5,6 +5,7 @@ const craftSchema = mongoose.Schema(
     name: {
       type: String,
       required: [true, 'Craft name is required'],
+      unique: true,
     },
     craftImage: {
       type: String,

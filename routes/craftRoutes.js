@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.use(authController.protect);
 
-router.get('/getAllCrafts', craftController.getAllCraft);
+router.get('/getAllCraft', craftController.getAllCraft);
 router.get('/getCraft', craftController.getCraft);
 
 router.use(authController.restrictTo('admin'));

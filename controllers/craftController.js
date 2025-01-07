@@ -3,6 +3,7 @@ const catchAsync = require('./../utils/catchAsync');
 const upload = require('../cloudinary/upload');
 const cloudinary = require('./../cloudinary/cloudinary');
 const factory = require('./handlerFactory');
+const appError = require('./../utils/appError');
 
 exports.uploadCraftImage = upload.single('craftImage');
 
@@ -48,3 +49,13 @@ exports.updateCraft = catchAsync(async (req, res, next) => {
 exports.getAllCraft = factory.getAll(Craft);
 exports.getCraft = factory.getOne(Craft);
 exports.deleteCraft = factory.deleteOne(Craft);
+
+// exports.getAllCraft = catchAsync(async (req, res, next) => {
+//   const crafts = await Craft.find({});
+//   if (!crafts) return next(new appError('No craft found', 404));
+//   res.status(200).json({
+//     status: 'success',
+//     results: crafts.length,
+//     data: { crafts },
+//   });
+// });
