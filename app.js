@@ -8,13 +8,16 @@ const appError = require('./utils/appError');
 
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors'); // Corrected module name
+const compression = require('compression');
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 app.use(express.json());
-
+app.use(cors()); // Corrected module name
+app.use(compression());
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
